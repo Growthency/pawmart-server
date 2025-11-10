@@ -31,7 +31,7 @@ async function run() {
     res.send("PawMart Server is running fine!");
   });
 
-  // Get latest 6 listings for home page
+  // HomePage er Jonno 6 Listing limit Set Kora
   app.get("/listings-recent", async (req, res) => {
     const result = await listingsCollection
       .find()
