@@ -65,7 +65,8 @@ async function run() {
     res.send(result);
   });
 
-  // Save an order to DB
+  // Database e Order Save Kora
+
   app.post("/orders", async (req, res) => {
     const newOrder = req.body;
     const result = await ordersCollection.insertOne(newOrder);
