@@ -30,6 +30,7 @@ async function run() {
   app.get("/", (req, res) => {
     res.send("PawMart Server is running fine!");
   });
+
   // Get latest 6 listings for home page
   app.get("/listings-recent", async (req, res) => {
     const result = await listingsCollection
@@ -39,17 +40,20 @@ async function run() {
       .toArray();
     res.send(result);
   });
+
   // Add a new listing to DB
   app.post("/listings", async (req, res) => {
     const newListing = req.body;
     const result = await listingsCollection.insertOne(newListing);
     res.send(result);
   });
+
   // Get ALL listings for Pets & Supplies page
   app.get("/all-listings", async (req, res) => {
     const result = await listingsCollection.find().toArray();
     res.send(result);
   });
+
   // Get a single listing by ID for details page
   app.get("/listing/:id", async (req, res) => {
     const id = req.params.id;
@@ -57,12 +61,14 @@ async function run() {
     const result = await listingsCollection.findOne(query);
     res.send(result);
   });
+
   // Save an order to DB
   app.post("/orders", async (req, res) => {
     const newOrder = req.body;
     const result = await ordersCollection.insertOne(newOrder);
     res.send(result);
   });
+
   // Get all listings posted by a specific user (email)
   app.get("/my-listings/:email", async (req, res) => {
     const email = req.params.email;
@@ -103,6 +109,7 @@ async function run() {
     );
     res.send(result);
   });
+
   // Get all orders placed by a specific user (email)
   app.get("/my-orders/:email", async (req, res) => {
     const email = req.params.email;
@@ -110,6 +117,7 @@ async function run() {
     const result = await ordersCollection.find(query).toArray();
     res.send(result);
   });
+
   app.listen(port, () => {
     console.log(`PawMart server is sitting on port ${port}`);
   });
