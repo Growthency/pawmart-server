@@ -50,13 +50,14 @@ async function run() {
   });
 
   //  ALL listings Pets & Supplies page e add kora
-  
+
   app.get("/all-listings", async (req, res) => {
     const result = await listingsCollection.find().toArray();
     res.send(result);
   });
 
-  // Get a single listing by ID for details page
+  // Get single listing by ID details page Er Jonno
+
   app.get("/listing/:id", async (req, res) => {
     const id = req.params.id;
     const query = { _id: new ObjectId(id) };
