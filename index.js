@@ -42,13 +42,15 @@ async function run() {
   });
 
   // Notun listing add to DB
+
   app.post("/listings", async (req, res) => {
     const newListing = req.body;
     const result = await listingsCollection.insertOne(newListing);
     res.send(result);
   });
 
-  // Get ALL listings for Pets & Supplies page
+  //  ALL listings Pets & Supplies page e add kora
+  
   app.get("/all-listings", async (req, res) => {
     const result = await listingsCollection.find().toArray();
     res.send(result);
