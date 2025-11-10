@@ -92,7 +92,7 @@ async function run() {
   });
 
   // Update listing by ID
-  
+
   app.put("/listing/:id", async (req, res) => {
     const id = req.params.id;
     const query = { _id: new ObjectId(id) };
@@ -117,7 +117,8 @@ async function run() {
     res.send(result);
   });
 
-  // Get all orders placed by a specific user (email)
+  // Get all orders by specific user (email)
+
   app.get("/my-orders/:email", async (req, res) => {
     const email = req.params.email;
     const query = { email: email };
