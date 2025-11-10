@@ -73,7 +73,8 @@ async function run() {
     res.send(result);
   });
 
-  // Get all listings posted by a specific user (email)
+  // Get all listings post by specific user (email)
+
   app.get("/my-listings/:email", async (req, res) => {
     const email = req.params.email;
     const query = { email: email };
@@ -81,7 +82,7 @@ async function run() {
     res.send(result);
   });
 
-  // Delete a listing by ID
+  // Delete listing by ID
   app.delete("/listing/:id", async (req, res) => {
     const id = req.params.id;
     const query = { _id: new ObjectId(id) };
@@ -89,7 +90,8 @@ async function run() {
     res.send(result);
   });
 
-  // Update a listing by ID
+  // Update listing by ID
+
   app.put("/listing/:id", async (req, res) => {
     const id = req.params.id;
     const query = { _id: new ObjectId(id) };
