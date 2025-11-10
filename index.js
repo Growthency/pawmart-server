@@ -41,7 +41,7 @@ async function run() {
     res.send(result);
   });
 
-  // Add a new listing to DB
+  // Notun listing add to DB
   app.post("/listings", async (req, res) => {
     const newListing = req.body;
     const result = await listingsCollection.insertOne(newListing);
