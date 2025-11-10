@@ -83,6 +83,7 @@ async function run() {
   });
 
   // Delete listing by ID
+
   app.delete("/listing/:id", async (req, res) => {
     const id = req.params.id;
     const query = { _id: new ObjectId(id) };
@@ -91,7 +92,6 @@ async function run() {
   });
 
   // Update listing by ID
-
   app.put("/listing/:id", async (req, res) => {
     const id = req.params.id;
     const query = { _id: new ObjectId(id) };
